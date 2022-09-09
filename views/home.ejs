@@ -9,6 +9,19 @@
             <% }) %>
         <% } %>
     </ul>
+    <% if (cart && cart.length > 0) { %>
+        <% cart.forEach(element => { %>
+            <%- include ('./partials/item.ejs',element) %> 
+        <% }) %>
+        <form action="/checkout/process" method="post">
+            <button type="submit">Comprar</button>
+        </form>
+     <% } else { %>
+        <section id="cart">
+            <h2>No hay productos </h2>
+        </section>
+    <% } %>
+    
 
     <!--
     <ul>
